@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./ready.css">
+</head>
+
+<body>
+    <div id="com">
+    <div id="d1">
+    <table>
+        <tr class="r1">
+            <td class="p1">Player1</td>
+        </tr>
+        <tr>
+            <td>
+                <p><img id="largeImg1" src="img/전투기1.png" alt="Large image"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul id="thumbs1">
+                    <li>
+                        <a href="img/전투기1.png"><img src="img/전투기1.png"></a>
+                    </li>
+                    <li>
+                        <a href="img/황색위쪽.png"><img src="img/황색위쪽.png"></a>
+                    </li>
+                    <li>
+                        <a href="img/파랑위쪽.png"><img src="img/파랑위쪽.png"></a>
+                    </li>
+                    <li>
+                        <a href="img/빨강위쪽.png"><img src="img/빨강위쪽.png"></a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    </div>
+    <div id="d2">
+    <table>
+        <tr class="r1">
+            <td class="p1">Player2</td>
+        </tr>
+        <tr>
+            <td>
+                <p><img id="largeImg2" src="img/전투기1.png" alt="Large image"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul id="thumbs2">
+                    <li>
+                        <a href="img/전투기1.png"><img src="img/전투기1.png"></a>
+                    </li>
+                    <li>
+                        <a href="img/황색위쪽.png"><img src="img/황색위쪽.png"></a>
+                    </li>
+                    <li>
+                        <a href="img/파랑위쪽.png"><img src="img/파랑위쪽.png"></a>
+                    </li>
+                    <li>
+                        <a href="img/빨강위쪽.png"><img src="img/빨강위쪽.png"></a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    </div>
+</div>
+    <div class="find-btn">
+        <button class="find-btn1" id="start">시작</button>
+        <button class="find-btn1" onclick="location.href='main.html'">뒤로가기</button>
+    </div>
+    <script>
+        
+        thumbs1.onclick = function (event) {
+            let thumbnail = event.target.closest('a');
+
+            if (!thumbnail) return;
+            showThumbnail1(thumbnail.href, thumbnail.title);
+            event.preventDefault();
+        }
+        function showThumbnail1(href, title) {
+            largeImg1.src = href;
+            largeImg1.alt = title;
+        }
+        
+        thumbs2.onclick = function (event) {
+            let thumbnail = event.target.closest('a');
+
+            if (!thumbnail) return;
+            showThumbnail2(thumbnail.href, thumbnail.title);
+            event.preventDefault();
+        }
+        
+        function showThumbnail2(href, title) {
+            largeImg2.src = href;
+            largeImg2.alt = title;
+        }
+
+        const start = document.getElementById('start');
+        let largeImg1 = document.getElementById('largeImg1');
+        let largeImg2 = document.getElementById('largeImg2');
+        start.addEventListener('click', next);
+        function next(){
+            window.location.href = "pvp.html?player1="+largeImg1.src + "&player2="+largeImg2.src;
+        }
+    </script>
+</body>
+</html>
